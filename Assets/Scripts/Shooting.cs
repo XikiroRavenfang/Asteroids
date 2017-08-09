@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 20f;
     public float recoil = 30f;
-    // minimum time between shots
+    // Minimum time between shots
     public float shotDelay = 0.1f;
 
     private float shotTimer = 0f;
@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // get rigidbody to apply recoil later
+        // Get rigidbody to apply recoil later
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         shotTimer += Time.deltaTime;
-        // if we can shoot again and space was just pressed
+        // If we can shoot again and space was just pressed
         if (Input.GetKeyDown(KeyCode.Space) && shotTimer >= shotDelay)
         {
             Shoot();
@@ -34,11 +34,11 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        // instantiate and add force to a projectile
+        // Instantiate and add force to a projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRigid = projectile.GetComponent<Rigidbody2D>();
         projectileRigid.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
-        // apply recoil to player
+        // Apply recoil to player
         rigid.AddForce(-transform.right * recoil, ForceMode2D.Impulse);
     }
 }

@@ -11,14 +11,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // <access-specifier> <data-type> <variable-name>;
     public int lives = 3;
     public float rotationSpeed = 2;
     public float movementSpeed = 5;
     public float acceleration = 50f;
     public float deceleration = .1f;
 
-    // Objects default to 'null'
     private Rigidbody2D rigid;
 
     // Use this for initialization

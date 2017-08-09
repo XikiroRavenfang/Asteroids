@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // get the rigidbody of the projectile
         rigid2D = GetComponent<Rigidbody2D>();
         // Destroy projectile after set time
         Destroy(gameObject, shotTime);
